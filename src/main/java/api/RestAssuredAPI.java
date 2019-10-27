@@ -18,7 +18,7 @@ public class RestAssuredAPI {
     String update = "update/";
     String delete = "delete/";
 
-    @Test(enabled = false)
+    @Test
     public void getAllEmployees() {
         Response response = given().when().get(employees).then().assertThat().statusCode(200).extract().response();
         System.out.println(response.asString());
@@ -29,7 +29,7 @@ public class RestAssuredAPI {
     }
 
 
-    @Test(enabled = false)
+    @Test
     public void getOneEmployee() {
         Response response = given().when().get(employeeWithId + 166).then().assertThat().statusCode(200).extract().response();
         System.out.println(response.asString());
@@ -39,7 +39,7 @@ public class RestAssuredAPI {
         System.out.println(jsonPath.get("employee_name"));
     }
 
-    @Test(enabled = false)
+    @Test
     public void testPostData() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "Shoumik Dhar");
@@ -51,7 +51,7 @@ public class RestAssuredAPI {
         System.out.println(response.asString());
     }
 
-    @Test(enabled =false)
+    @Test
     public void testPutCall() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "someone");
@@ -63,7 +63,7 @@ public class RestAssuredAPI {
 
     }
 
-    @Test(enabled = true)
+    @Test
     public void testDelete() {
         Response response = given().contentType(ContentType.JSON).delete(delete + 2063);
         System.out.println(response.statusCode());
